@@ -7,3 +7,5 @@ A physics-based dice tower.  Created the tower and a die with pips. Next step is
 The dice aren't displaying a total yet, but below you can see that each die is aware of it's "rolled" value.  This is accomplished by comparing the rolled die's Euler angles against an unrotated reference die.
 
 ![dice_tower1](https://user-images.githubusercontent.com/74695555/180630551-019753c5-7633-4b71-b958-4f7331534442.png)
+
+![ref_die](https://user-images.githubusercontent.com/74695555/180630689-5bf73ea2-8be8-467d-9ae0-26e7300bec7c.png)
