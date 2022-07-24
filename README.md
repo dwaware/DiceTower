@@ -10,4 +10,4 @@ The dice aren't displaying a total yet, but below you can see that each die is a
 
 ![ref_die](https://user-images.githubusercontent.com/74695555/180630689-5bf73ea2-8be8-467d-9ae0-26e7300bec7c.png)
 
-Today Western dice all have the same face arrangement as this reference die. They are right-handed, so If the 1-spot is face up and the 2-spot is turned to face the left then the 3-spot is to the right of it. Chinese dice will have the faces the opposite way round. Japanese dice are arranged like Western dice but like other Asian dice they will have a very large and deep 1-spot painted red. Chinese and Korean dice will have a red 4-spot as well as the 1.
+Western dice all have the same face arrangement as this reference die. They are right-handed, so If the 1-spot is face up and the 2-spot is turned to face the left then the 3-spot is to the right of it. Chinese dice will have the faces the opposite way round. Japanese dice are arranged like Western dice but like other Asian dice they will have a very large and deep 1-spot painted red. Chinese and Korean dice will have a red 4-spot as well as the 1.
