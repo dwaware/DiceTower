@@ -1,6 +1,6 @@
 # DiceTower
 
-A physics-based dice tower.
+A fun weekend project--a physics-based dice tower.
 
 I created the tower and a die with pips. Next step will be a UI panel to select how many dice to drop.  A dice total will be included as well.  Then metallic shaders for the dice?
  
