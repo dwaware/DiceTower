@@ -4,9 +4,11 @@ A physics-based dice tower.  Created the tower and a die with pips. Next step is
  
 ![dice_tower](https://user-images.githubusercontent.com/74695555/180630549-90d4a66f-fa14-4cdc-b2e5-21a0e9866a3b.png)
 
-The dice aren't displaying a total yet, but below you can see that each die is aware of it's "rolled" value.  This is accomplished by comparing the rolled die's Euler angles against an unrotated reference die.
+The dice aren't displaying a total yet, but below you can see that each die is aware of its "rolled" value.  This is accomplished by comparing the rolled die's Euler angles against an unrotated reference die.
 
 ![dice_tower1](https://user-images.githubusercontent.com/74695555/180630551-019753c5-7633-4b71-b958-4f7331534442.png)
+
+In the image above, right below the Upper Side Value is a Vector3 I refer to as the reference pips.  This records what pip value corresponds with the positive x, y and z axis.  You can use the script with whatever die you want, you just have to make sure to set the pip values accordingly.  I chose to use a standard "Western die" pattern:
 
 ![ref_die](https://user-images.githubusercontent.com/74695555/180630689-5bf73ea2-8be8-467d-9ae0-26e7300bec7c.png)
 
