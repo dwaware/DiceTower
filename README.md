@@ -24,7 +24,7 @@ Chinese dice will have the faces the opposite way round. Japanese dice are arran
 
 PHASE II:
 
-Added states (IDLE, SELECT, ROLL) and events.  Added some title text which fades as after a short idle period.  Likewise, the dice have "frozen" rigidbodies but they are allowed to move as the title text fades.  Next will be a SELECT state that allows you to add/remove dice before initiating a ROLL.  Some images from phase II:
+Added states (IDLE, SELECT, ROLL) and events.  Added some title text that fades after a short IDLE period.  Likewise, the dice have frozen rigidbodies that are  allowed to move as the title text completes its fade.  The SELECT state doesn't do anything as of yet, but eventually you'll be picking your dice before initiating a ROLL.  Some images from phase II:
 
 ![dice_tower_01](https://user-images.githubusercontent.com/74695555/180694198-5c912eb1-88d6-4dd0-ad67-e08a10abc004.png)
 ![dice_tower_02](https://user-images.githubusercontent.com/74695555/180694201-5a4ac7ad-8c2d-4ad4-baa1-a4693140f280.png)
