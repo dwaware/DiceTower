@@ -1,6 +1,6 @@
 # DiceTower
 
-A fun weekend project--a physics-based dice tower.
+A fun weekend project--a physics-based dice tower.  The goal is to create everything from scratch:  all the assets (die textures, etc.) and models (the tower) as well as the game state logic and game "loop" that the player will experience.
 
 PHASE I:
 
