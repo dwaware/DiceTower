@@ -12,8 +12,23 @@ public class RolledValue : MonoBehaviour
     private Vector3Int OpposingPips;
     readonly List<int> FacePips = new List<int>() { 0, 1, 2, 3, 4, 5, 6 };
 
+    private void Awake()
+    {
+        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+    }
+
+    private void GameManagerOnOnGameStateChanged(GameManager.GameState obj)
+    {
+        if (obj == GameManager.GameState.ROLL)
+        {
+            Debug.Log("Roll die:  " + this.name);
+            rb.constraints = RigidbodyConstraints.None;
+        }
+    }
+
     void Start()
     {
+        rb.constraints = RigidbodyConstraints.FreezePosition;
         UpperSideValue = 0;
         OpposingPips = 7 * Vector3Int.one - ReferencePips;
     }
