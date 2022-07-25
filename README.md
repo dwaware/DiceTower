@@ -2,6 +2,8 @@
 
 A fun weekend project--a physics-based dice tower.
 
+PHASE I:
+
 I created the tower and a die with pips. Next step will be a UI panel to select how many dice to drop.  A dice total will be included as well.  Then metallic shaders for the dice?
  
 ![dice_tower](https://user-images.githubusercontent.com/74695555/180630549-90d4a66f-fa14-4cdc-b2e5-21a0e9866a3b.png)
@@ -19,3 +21,15 @@ Western dice all have the same face arrangement as this reference die. They are 
 ![western_die](https://user-images.githubusercontent.com/74695555/180631288-574a834e-28bd-4628-a7d6-72c40291b009.jpg)
 
 Chinese dice will have the faces the opposite way round. Japanese dice are arranged like Western dice but like other Asian dice they will have a very large and deep 1-spot painted red. Chinese and Korean dice will have a red 4-spot as well as the 1.
+
+PHASE II:
+
+Added states (IDLE, SELECT, ROLL) and events.  Added some title text which fades as after a short idle period.  Likewise, the dice have "frozen" rigidbodies but they are allowed to move as the title text fades.  Next will be a SELECT state that allows you to add/remove dice before initiating a ROLL.  Some images from phase II:
+
+![dice_tower_01](https://user-images.githubusercontent.com/74695555/180694198-5c912eb1-88d6-4dd0-ad67-e08a10abc004.png)
+![dice_tower_02](https://user-images.githubusercontent.com/74695555/180694201-5a4ac7ad-8c2d-4ad4-baa1-a4693140f280.png)
+![dice_tower_03](https://user-images.githubusercontent.com/74695555/180694203-18ec0d89-7eb4-435f-835e-4ed1b371c374.png)
+![dice_tower_04](https://user-images.githubusercontent.com/74695555/180694206-f9597a22-4d35-4bce-81ca-9ff5a9a8292c.png)
+![dice_tower_05](https://user-images.githubusercontent.com/74695555/180694207-e3e273d8-c7b1-4b14-8d8f-73efd3ea74db.png)
+![dice_tower_06](https://user-images.githubusercontent.com/74695555/180694208-ec69df2a-bc27-4d3d-bc68-b92751853ae9.png)
+
