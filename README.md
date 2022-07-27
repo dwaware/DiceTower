@@ -33,3 +33,8 @@ Added states (IDLE, SELECT, ROLL) and events.  Added some title text that fades 
 ![dice_tower_05](https://user-images.githubusercontent.com/74695555/180694207-e3e273d8-c7b1-4b14-8d8f-73efd3ea74db.png)
 ![dice_tower_06](https://user-images.githubusercontent.com/74695555/180694208-ec69df2a-bc27-4d3d-bc68-b92751853ae9.png)
 
+continued...
+
+Added a roll button--and will allow for rerolling after I add a "die selection" mechanism.
+
+![dice_tower_roll](https://user-images.githubusercontent.com/74695555/181156395-2d51e1ca-1e23-428f-8f16-eb5b7ebaee59.png)
