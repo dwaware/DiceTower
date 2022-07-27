@@ -64,8 +64,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator IdleWhileLoading()
     {
-        UpdateGameState(GameState.SELECT);
         yield return new WaitForSeconds(2f);
-        UpdateGameState(GameState.ROLL);
+        UpdateGameState(GameState.SELECT);
     }
 }

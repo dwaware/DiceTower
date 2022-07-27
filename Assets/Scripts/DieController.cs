@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class RolledValue : MonoBehaviour
+public class DieController: MonoBehaviour
 {
     public int UpperSideValue;
 
@@ -14,15 +13,22 @@ public class RolledValue : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
+        GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
     }
 
-    private void GameManagerOnOnGameStateChanged(GameManager.GameState obj)
+    private void OnDestroy()
+    {
+        GameManager.OnGameStateChanged -= GameManagerOnGameStateChanged;
+    }
+
+    private void GameManagerOnGameStateChanged(GameManager.GameState obj)
     {
         if (obj == GameManager.GameState.ROLL)
         {
             Debug.Log("Roll die:  " + this.name);
             rb.constraints = RigidbodyConstraints.None;
+            float randVel = UnityEngine.Random.Range(-2,0) - 2.5f;
+            rb.velocity = new Vector3(0, randVel, 0);
         }
     }
 

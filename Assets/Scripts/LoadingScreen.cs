@@ -7,6 +7,7 @@ using DG.Tweening;
 public class LoadingScreen : MonoBehaviour
 {
     public TextMeshProUGUI TitleText;
+    public CanvasGroup ButtonCG;
     private void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnOnGameStateChanged;
@@ -18,6 +19,13 @@ public class LoadingScreen : MonoBehaviour
         {
             Debug.Log("Fade the title!");
             TitleText.DOFade(0f, 2f);
+            ButtonCG.DOFade(1f, 2f).OnComplete(ActivateRollButton);
         }
+    }
+
+    private void ActivateRollButton()
+    {
+        ButtonCG.blocksRaycasts = true;
+        ButtonCG.interactable = true;
     }
 }
