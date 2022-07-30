@@ -42,3 +42,15 @@ Added a roll button--and will allow for rerolling after I add a "die selection" 
 and ...
 
 added dice increment/deincrement buttons.  Currently allowing up to 4 dice to be rolled.
+
+PHASE III
+
+Added interactivity checks for add/subtract/roll dice so that buttons are only interactible when it makes sense.
+
+![dice_tower](https://user-images.githubusercontent.com/74695555/182001750-48165876-341f-4f1c-85fa-d8de51750dd1.png)
+
+Also added a dice total and a "cocked die" condition, meaning that if a die doesn't land flat, a total is not calculated and instead you are prompted to roll again.
+
+![cocked_die](https://user-images.githubusercontent.com/74695555/182001755-85819086-2947-4ac4-8608-e933ca6d41ce.png)
+
+Added max dice value of 8.  Minimum is zero but rolling zero dice doesn't do anything.
