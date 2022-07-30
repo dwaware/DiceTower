@@ -15,15 +15,12 @@ public class GameManager : MonoBehaviour
         SELECT,
         ROLL
     };
+    public GameObject dicePool;
+    public int maxDice;
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    internal static void OnOnGameStateChanged()
-    {
-        throw new NotImplementedException();
     }
 
     void Start()

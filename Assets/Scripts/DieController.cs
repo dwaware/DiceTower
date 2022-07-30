@@ -6,6 +6,9 @@ public class DieController: MonoBehaviour
 {
     public int UpperSideValue;
 
+    public Vector3 startPos;
+    public Quaternion startRot;
+
     public Rigidbody rb;
     public Vector3Int ReferencePips;
     private Vector3Int OpposingPips;
@@ -25,15 +28,23 @@ public class DieController: MonoBehaviour
     {
         if (obj == GameManager.GameState.ROLL)
         {
-            Debug.Log("Roll die:  " + this.name);
+            if (GameManager.Instance.STATE_PREV == GameManager.GameState.ROLL) {
+                transform.position = startPos;
+                startRot = Quaternion.Euler(new Vector3(UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f)));
+                transform.rotation = startRot;
+            }
+            Debug.Log("Roll die:  " + name);
             rb.constraints = RigidbodyConstraints.None;
-            float randVel = UnityEngine.Random.Range(-2,0) - 2.5f;
+            float randVel = UnityEngine.Random.Range(-1, 0);
             rb.velocity = new Vector3(0, randVel, 0);
         }
     }
 
     void Start()
     {
+        startPos = transform.position;
+        startRot = transform.rotation;
+
         rb.constraints = RigidbodyConstraints.FreezePosition;
         UpperSideValue = 0;
         OpposingPips = 7 * Vector3Int.one - ReferencePips;
