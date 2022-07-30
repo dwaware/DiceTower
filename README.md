@@ -38,3 +38,7 @@ continued...
 Added a roll button--and will allow for rerolling after I add a "die selection" mechanism.
 
 ![dice_tower_roll](https://user-images.githubusercontent.com/74695555/181156395-2d51e1ca-1e23-428f-8f16-eb5b7ebaee59.png)
+
+and ...
+
+added dice increment/deincrement buttons.  Currently allowing up to 4 dice to be rolled.
