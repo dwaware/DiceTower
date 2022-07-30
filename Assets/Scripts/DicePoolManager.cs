@@ -7,6 +7,11 @@ public class DicePoolManager : MonoBehaviour
     public GameObject die;
     public GameObject dicePool;
     public List<GameObject> dice;
+    public float totalVelocity;
+    public CanvasGroup addCG;
+    public CanvasGroup subCG;
+    public CanvasGroup rollCG;
+
     public void IncrementDice(int _amount)
     {
         var yOff = Mathf.FloorToInt(dice.Count / 4);
@@ -29,6 +34,28 @@ public class DicePoolManager : MonoBehaviour
             Destroy(dice[diceCount]);
             dice.RemoveAt(diceCount);
             
+        }
+    }
+
+    public void Update()
+    {
+        if (GameManager.Instance.STATE == GameManager.GameState.ROLLING)
+        {
+            var totalVelocity = 0f;
+            var diceTotal = 0;
+            foreach (GameObject _die in dice)
+            {
+                totalVelocity += _die.GetComponent<Rigidbody>().velocity.magnitude;
+                diceTotal += _die.GetComponent<DieController>().UpperSideValue;
+                if (Mathf.Approximately(totalVelocity, 0f))
+                {
+                    Debug.Log("Done rolling!  Total is:  " + diceTotal);
+                    addCG.interactable = true;
+                    subCG.interactable = true;
+                    rollCG.interactable = true;
+                    GameManager.Instance.UpdateGameState(GameManager.GameState.SELECTING);
+                }
+            }
         }
     }
 }

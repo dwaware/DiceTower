@@ -7,9 +7,9 @@ public class DicePoolButtonController : MonoBehaviour
 {
     public int incrementAmount;
     public Button incrementButton;
-    public Button otherButton;
     public CanvasGroup incCG;
     public CanvasGroup othCG;
+    public CanvasGroup rollCG;
 
     public void Start()
     {
@@ -17,6 +17,7 @@ public class DicePoolButtonController : MonoBehaviour
         if (incrementAmount == -1)
         {
             incCG.interactable = false;
+            rollCG.interactable = false;
         }
     }
 
@@ -30,12 +31,14 @@ public class DicePoolButtonController : MonoBehaviour
             if (numDice < GameManager.Instance.maxDice)
             {
                 incCG.interactable = true;
+                rollCG.interactable = true;
             }
             else
             {
                 incCG.interactable = false;
             }
             othCG.interactable = true;
+            rollCG.interactable = true;
         }
         if (incrementAmount == -1)
         {
@@ -46,6 +49,7 @@ public class DicePoolButtonController : MonoBehaviour
             else
             {
                 incCG.interactable = false;
+                rollCG.interactable = false;
             }
             othCG.interactable = true;
         }

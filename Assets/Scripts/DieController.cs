@@ -26,12 +26,14 @@ public class DieController: MonoBehaviour
 
     private void GameManagerOnGameStateChanged(GameManager.GameState obj)
     {
-        if (obj == GameManager.GameState.ROLL)
+        if (obj == GameManager.GameState.ROLLING)
         {
-            if (GameManager.Instance.STATE_PREV == GameManager.GameState.ROLL) {
+            if (GameManager.Instance.STATE_PREV == GameManager.GameState.ROLLING) {
                 transform.position = startPos;
                 startRot = Quaternion.Euler(new Vector3(UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f)));
                 transform.rotation = startRot;
+                rb.velocity = Vector3.zero;
+                rb.rotation = Quaternion.Euler(Vector3.zero);
             }
             Debug.Log("Roll die:  " + name);
             rb.constraints = RigidbodyConstraints.None;

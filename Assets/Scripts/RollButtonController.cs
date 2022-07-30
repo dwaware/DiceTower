@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class RollButtonController : MonoBehaviour
 {
     public Button rollButton;
+    public CanvasGroup addCG;
+    public CanvasGroup subCG;
 
     public void Start()
     {
@@ -15,6 +17,8 @@ public class RollButtonController : MonoBehaviour
     private void HandleBtnClicked()
     {
         Debug.Log("You clicked the roll button:  " + rollButton.name);
-        GameManager.Instance.UpdateGameState(GameManager.GameState.ROLL);
+        addCG.interactable = false;
+        subCG.interactable = false;
+        GameManager.Instance.UpdateGameState(GameManager.GameState.ROLLING);
     }
 }

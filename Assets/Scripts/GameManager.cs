@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     public GameState STATE_PREV;
     public static event Action<GameState> OnGameStateChanged;
     public enum GameState {
-        IDLE,
-        SELECT,
-        ROLL
+        LOADING,
+        SELECTING,
+        ROLLING
     };
     public GameObject dicePool;
     public int maxDice;
@@ -35,12 +35,12 @@ public class GameManager : MonoBehaviour
 
         switch (_newState)
         {
-            case GameState.IDLE:
+            case GameState.LOADING:
                 break;
-            case GameState.SELECT:
+            case GameState.SELECTING:
                 HandleSelecting();
                 break;
-            case GameState.ROLL:
+            case GameState.ROLLING:
                 HandleRolling();
                 break;
             default:
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator IdleWhileLoading()
     {
-        yield return new WaitForSeconds(2f);
-        UpdateGameState(GameState.SELECT);
+        yield return new WaitForSeconds(0.5f);
+        UpdateGameState(GameState.SELECTING);
     }
 }
