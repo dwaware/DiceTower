@@ -25,6 +25,7 @@ public class DicePoolButtonController : MonoBehaviour
     {
         GameManager.Instance.dicePool.GetComponent<DicePoolManager>().IncrementDice(incrementAmount);
         var numDice = GameManager.Instance.dicePool.GetComponent<DicePoolManager>().dice.Count;
+        GameManager.Instance.UpdateGameState(GameManager.GameState.SELECTING);
 
         if (incrementAmount == 1)
         {

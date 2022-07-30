@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public enum GameState {
         LOADING,
         SELECTING,
-        ROLLING
+        ROLLING,
     };
     public GameObject dicePool;
     public int maxDice;

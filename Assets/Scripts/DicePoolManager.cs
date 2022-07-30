@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using DG.Tweening;
 
 public class DicePoolManager : MonoBehaviour
 {
@@ -11,18 +13,22 @@ public class DicePoolManager : MonoBehaviour
     public CanvasGroup addCG;
     public CanvasGroup subCG;
     public CanvasGroup rollCG;
+    public TextMeshProUGUI totalText;
+    public CanvasGroup totalTextCG;
 
     public void IncrementDice(int _amount)
     {
-        var yOff = Mathf.FloorToInt(dice.Count / 4);
-        var xOff = dice.Count % 2 - yOff % 2;
+        var xOff = dice.Count % 2;
+        var yOff = 1.25f * Mathf.FloorToInt(dice.Count / 4);
         var zOff = dice.Count % 4;
 
         if (_amount == 1 && dice.Count < GameManager.Instance.maxDice)
         {
-            var posVec = new Vector3(2 + xOff, 8 + yOff, -1 - zOff);
+            var posVec = transform.position + new Vector3(2 + xOff, 6.25f + yOff, -1 - zOff);
             var rotVec = new Vector3(UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f));
+
             GameObject _die = Instantiate(die, posVec, Quaternion.Euler(rotVec));
+            
             _die.transform.SetParent(dicePool.transform);
             var _name = dice.Count + 1;
             _die.name = "Die " + _name.ToString();
@@ -42,19 +48,45 @@ public class DicePoolManager : MonoBehaviour
         if (GameManager.Instance.STATE == GameManager.GameState.ROLLING)
         {
             var totalVelocity = 0f;
-            var diceTotal = 0;
             foreach (GameObject _die in dice)
             {
-                totalVelocity += _die.GetComponent<Rigidbody>().velocity.magnitude;
-                diceTotal += _die.GetComponent<DieController>().UpperSideValue;
-                if (Mathf.Approximately(totalVelocity, 0f))
+                var _dieVel = _die.GetComponent<Rigidbody>().velocity.magnitude;
+                if (_dieVel == 0)
                 {
-                    Debug.Log("Done rolling!  Total is:  " + diceTotal);
-                    addCG.interactable = true;
-                    subCG.interactable = true;
-                    rollCG.interactable = true;
-                    GameManager.Instance.UpdateGameState(GameManager.GameState.SELECTING);
+                    _die.GetComponent<DieController>().onTable = true;
                 }
+                totalVelocity += _dieVel;
+            }
+            if (totalVelocity == 0)
+            {
+                var diceTotal = 0;
+                var cockedDie = false;
+                foreach (GameObject _die in dice)
+                {
+                    var upperSideVal = _die.GetComponent<DieController>().UpperSideValue;
+                    diceTotal += upperSideVal;
+                    if (upperSideVal == -1)
+                    {
+                        cockedDie = true;
+                    }
+                }
+                if (cockedDie == true)
+                {
+                    totalText.text = "TOTAL:  Cocked, roll again.";
+                }
+                else
+                {
+                    totalText.text = "TOTAL:  " + diceTotal;
+                }
+                totalTextCG.DOFade(1f, 0.5f);
+                if (dice.Count < GameManager.Instance.maxDice)
+                {
+                    addCG.interactable = true;
+                }
+                subCG.interactable = true;
+                rollCG.interactable = true;
+                GameManager.Instance.UpdateGameState(GameManager.GameState.SELECTING);
+                
             }
         }
     }

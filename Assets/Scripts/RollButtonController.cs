@@ -8,6 +8,7 @@ public class RollButtonController : MonoBehaviour
     public Button rollButton;
     public CanvasGroup addCG;
     public CanvasGroup subCG;
+    public CanvasGroup rollCG;
 
     public void Start()
     {
@@ -19,6 +20,7 @@ public class RollButtonController : MonoBehaviour
         Debug.Log("You clicked the roll button:  " + rollButton.name);
         addCG.interactable = false;
         subCG.interactable = false;
+        rollCG.interactable = false;
         GameManager.Instance.UpdateGameState(GameManager.GameState.ROLLING);
     }
 }
