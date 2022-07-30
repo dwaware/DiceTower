@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4435876027397416974}
   - component: {fileID: 3038558072729442096}
   m_Layer: 0
-  m_Name: DT_Corral_Near
+  m_Name: DT_Corral_Far
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1025,12 +1025,12 @@ GameObject:
   - component: {fileID: 847486854682401540}
   - component: {fileID: 1661608397471418270}
   m_Layer: 0
-  m_Name: DT_Corral_Far
+  m_Name: DT_Corral_Near
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &623938814364958263
 Transform:
   m_ObjectHideFlags: 0
