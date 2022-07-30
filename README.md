@@ -53,4 +53,4 @@ Also added a dice total and a "cocked die" condition, meaning that if a die does
 
 ![cocked_die](https://user-images.githubusercontent.com/74695555/182001755-85819086-2947-4ac4-8608-e933ca6d41ce.png)
 
-Added max dice value of 8.  Minimum is zero but rolling zero dice doesn't do anything.
+Added max dice value of 8.  Minimum is zero dice but the roll button is disabled if there are no dice on the table.
