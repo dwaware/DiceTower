@@ -14,6 +14,10 @@ public class DieController: MonoBehaviour
     readonly List<int> FacePips = new List<int>() { 0, 1, 2, 3, 4, 5, 6 };
     public bool onTable;
 
+    public AudioSource audioSource;
+    public AudioClip clip;
+    public float volume = 1f;
+
     private void Awake()
     {
         GameManager.OnGameStateChanged += GameManagerOnGameStateChanged;
@@ -50,6 +54,20 @@ public class DieController: MonoBehaviour
         UpperSideValue = 0;
         OpposingPips = 7 * Vector3Int.one - ReferencePips;
         onTable = false;
+    }
+
+    void PlayAudio()
+    {
+        audioSource.PlayOneShot(clip, volume);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Table")
+        {
+            Debug.Log("Collided with:  " + collision.gameObject.name);
+            PlayAudio();
+        }
     }
 
     void Update() {
