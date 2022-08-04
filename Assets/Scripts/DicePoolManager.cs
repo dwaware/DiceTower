@@ -28,8 +28,18 @@ public class DicePoolManager : MonoBehaviour
             var rotVec = new Vector3(UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f), UnityEngine.Random.Range(0, 360f));
 
             GameObject _die = Instantiate(die, posVec, Quaternion.Euler(rotVec));
-            
             _die.transform.SetParent(dicePool.transform);
+
+            var offsetColor = Random.Range(0, 2);
+            var offsetR = 0f;
+            var offsetG = 0f;
+            var offsetB = 0f;
+            if (offsetColor == 0) { offsetR = 0.25f; }
+            if (offsetColor == 0) { offsetG = 0.25f; }
+            if (offsetColor == 0) { offsetB = 0.25f; }
+            var _matColor = new Color(Random.Range(0.5f+offsetR, 1f), Random.Range(0.5f+offsetG, 1f), Random.Range(0.5f+offsetB, 1f), 1);
+            _die.GetComponent<Renderer>().material.SetColor("_Color", _matColor);
+
             var _name = dice.Count + 1;
             _die.name = "Die " + _name.ToString();
             dice.Add(_die);

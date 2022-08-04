@@ -63,7 +63,7 @@ public class DieController: MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag != "Table")
+        if (collision.gameObject.tag != "Table" /* && !collision.gameObject.tag.Contains("Die") */)
         {
             Debug.Log("Collided with:  " + collision.gameObject.name);
             PlayAudio();
